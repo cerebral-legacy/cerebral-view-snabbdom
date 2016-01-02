@@ -3,13 +3,15 @@
 Cerebral Snabbdom makes Cerebral a first class citizen of components. That means you have to do a lot less wiring to build components and Snabbdom is faster than React. Read more about the JSX syntax over at [snabbdom-jsx](https://github.com/yelouafi/snabbdom-jsx), it differs from React.
 
 ## Install
-`npm install cerebral-snabbdom transform-react-jsx`
+`npm install cerebral-snabbdom`
 
 To use JSX syntax you also need Babel with the `transform-react-jsx` package.
 
+`npm install babel-plugin-transform-react-jsx`
+
 ```js
 {
-  "presets": ["es2015", "stage-0"],
+  "presets": ["es2015"],
   "plugins": [
     ["transform-react-jsx", { "pragma": "Component.DOM" }]
   ]
@@ -154,3 +156,14 @@ const MyComponent = Component({
 ));
 ```
 Now the component will only update if either *title* from props or *version* from the state has changed.
+
+### eslint
+When using eslint, it may complain about `Component` being unused. You can configure eslint to allow `Component`:
+```js
+    "no-unused-vars": [2, {
+      "vars": "local",
+      "args": "after-used",
+      "varsIgnorePattern": "Component"
+    }],
+```
+A complete [.eslint sample config](https://gist.github.com/garth/a812cf7a7b53f083e667) for cerebral-snabbdom.
