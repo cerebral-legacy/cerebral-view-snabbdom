@@ -44,10 +44,10 @@ function Component() {
   var statePaths = arguments[0];
   var render = extractsState ? arguments[1] : arguments[0];
 
-  return (props, children) => {
+  return function (props, children) {
     var newState;
     if (extractsState) {
-      var newState = Object.keys(statePaths).reduce((state, key) => {
+      var newState = Object.keys(statePaths).reduce(function (state, key) {
         state[key] = activeController.get(statePaths[key]);
         return state;
       }, {});
@@ -98,7 +98,7 @@ module.exports.Component = Component;
 module.exports.render = function render(cb, el, controller) {
   activeController = controller;
   var prevNode = cb();
-  controller.on('change', () => {
+  controller.on('change', function () {
     var newNode = cb();
     patch(prevNode, newNode);
     prevNode = newNode;
