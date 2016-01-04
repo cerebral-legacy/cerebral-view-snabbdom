@@ -97,6 +97,10 @@ module.exports.Component = Component;
 
 module.exports.render = function render(cb, el, controller) {
   activeController = controller;
+  activeController.devtools.start();
+  if (activeController.services.router) {
+    activeController.services.router.trigger();
+  }
   var prevNode = cb();
   controller.on('change', function () {
     var newNode = cb();
