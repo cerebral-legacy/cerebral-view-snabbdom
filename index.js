@@ -72,8 +72,8 @@ function Component() {
       props: props,
       children: children,
       state: newState,
-      signals: activeController.signals,
-      modules: activeController.modules
+      signals: activeController.getSignals(),
+      modules: activeController.getModules()
     });
 
     if (props.key) {
@@ -97,9 +97,9 @@ module.exports.Component = Component;
 
 module.exports.render = function render(cb, el, controller) {
   activeController = controller;
-  activeController.devtools.start();
-  if (activeController.services.router) {
-    activeController.services.router.trigger();
+  activeController.getDevtools().start();
+  if (activeController.getServices().router) {
+    activeController.getServices().router.trigger();
   }
   var prevNode = cb();
   controller.on('change', function () {
