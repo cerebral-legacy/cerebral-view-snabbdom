@@ -1,6 +1,6 @@
 {
   "name": "cerebral-view-snabbdom",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "View package for Cerebral",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/cerebral/cerebral-snabbdom#readme",
   "dependencies": {
-    "snabbdom": "^0.2.8",
+    "raskdom": "^0.3.0",
     "snabbdom-jsx": "^0.3.0"
   },
   "devDependencies": {
