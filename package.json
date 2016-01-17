@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cerebral/cerebral-snabbdom.git"
+    "url": "git+https://github.com/cerebral/cerebral-view-snabbdom.git"
   },
   "keywords": [
     "cerebral",
@@ -19,9 +19,9 @@
   "author": "Christian Alfoni",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cerebral/cerebral-snabbdom/issues"
+    "url": "https://github.com/cerebral/cerebral-view-snabbdom/issues"
   },
-  "homepage": "https://github.com/cerebral/cerebral-snabbdom#readme",
+  "homepage": "https://github.com/cerebral/cerebral-view-snabbdom#readme",
   "dependencies": {
     "raskdom": "^0.3.0",
     "snabbdom-jsx": "^0.3.0"
