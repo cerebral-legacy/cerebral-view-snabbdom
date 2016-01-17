@@ -4,6 +4,8 @@
   "description": "View package for Cerebral",
   "main": "index.js",
   "scripts": {
+    "lint": "standard | snazzy",
+    "pretest": "npm run lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,5 +27,7 @@
     "snabbdom-jsx": "^0.3.0"
   },
   "devDependencies": {
+    "snazzy": "^2.0.1",
+    "standard": "^5.4.1"
   }
 }
