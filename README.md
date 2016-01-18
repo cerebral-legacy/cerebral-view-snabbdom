@@ -1,9 +1,9 @@
-# Cerebral Snabbdom
+# Cerebral View Snabbdom
 
-Cerebral Snabbdom makes Cerebral a first class citizen of components. That means you have to do a lot less wiring to build components and Snabbdom is faster than React. Read more about the JSX syntax over at [snabbdom-jsx](https://github.com/yelouafi/snabbdom-jsx), it differs from React.
+Cerebral View Snabbdom makes Cerebral a first class citizen of components. That means you have to do a lot less wiring to build components and Snabbdom is faster than React. Read more about the JSX syntax over at [snabbdom-jsx](https://github.com/yelouafi/snabbdom-jsx), it differs from React.
 
 ## Install
-`npm install cerebral-snabbdom`
+`npm install cerebral-view-snabbdom`
 
 To use JSX syntax you also need Babel with the `transform-react-jsx` package.
 
@@ -21,7 +21,7 @@ To use JSX syntax you also need Babel with the `transform-react-jsx` package.
 ## Render
 
 ```js
-import {Component, render} from 'cerebral-snabbdom';
+import {Component, render} from 'cerebral-view-snabbdom';
 import App from './App';
 import controller from './controller';
 
@@ -34,7 +34,7 @@ Note that you have to pass a callback to render the initial component, returning
 ## Component
 
 ```js
-import {Component} from 'cerebral-snabbdom';
+import {Component} from 'cerebral-view-snabbdom';
 
 export default Component(() => (
 
@@ -47,7 +47,7 @@ export default Component(() => (
 By default you have access to all the state from your state tree on the `state` property passed into each components.
 
 ```js
-import {Component} from 'cerebral-snabbdom';
+import {Component} from 'cerebral-view-snabbdom';
 
 export default Component(({state}) => (
 
@@ -59,7 +59,7 @@ export default Component(({state}) => (
 You can optionally extract specific state and customize its property name:
 
 ```js
-import {Component} from 'cerebral-snabbdom';
+import {Component} from 'cerebral-view-snabbdom';
 
 export default Component({
   title: ['title'],
@@ -81,7 +81,7 @@ In this case only *title* and *rows* are available in the component, via the *st
 
 *MyComponent.js*
 ```js
-import {Component} from 'cerebral-snabbdom';
+import {Component} from 'cerebral-view-snabbdom';
 
 export default Component(({props}) => (
 
@@ -100,7 +100,7 @@ import MyComponent from './MyComponent';
 
 *MyComponent.js*
 ```js
-import {Component} from 'cerebral-snabbdom';
+import {Component} from 'cerebral-view-snabbdom';
 
 export default Component(({state, signals}) => (
 
@@ -117,7 +117,7 @@ Modules access is primarily necessary for components related to specific modules
 
 *MyComponent.js*
 ```js
-import {Component} from 'cerebral-snabbdom';
+import {Component} from 'cerebral-view-snabbdom';
 
 export default Component(({modules}) => (
 
@@ -131,7 +131,7 @@ Any component you give a `key` will be optimized under the hood. It will shallow
 
 *MyComponent.js*
 ```js
-import {Component} from 'cerebral-snabbdom';
+import {Component} from 'cerebral-view-snabbdom';
 
 const MyComponent = Component(({props}) => (
 
@@ -145,7 +145,7 @@ The key has to be **unique**. The component will only render when *title* actual
 
 *MyComponent.js*
 ```js
-import {Component} from 'cerebral-snabbdom';
+import {Component} from 'cerebral-view-snabbdom';
 
 const MyComponent = Component({
   version: ['version']
