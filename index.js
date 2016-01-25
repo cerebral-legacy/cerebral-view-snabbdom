@@ -1,15 +1,15 @@
-var snabbdom = require('raskdom')
+var snabbdom = require('snabbdom')
 var html = require('snabbdom-jsx').html
 
 var optimized = {}
 var activeController = null
 
 var patch = snabbdom.init([
-  require('raskdom/modules/class'),
-  require('raskdom/modules/props'),
-  require('raskdom/modules/attributes'),
-  require('raskdom/modules/style'),
-  require('raskdom/modules/eventlisteners'),
+  require('snabbdom/modules/class'),
+  require('snabbdom/modules/props'),
+  require('snabbdom/modules/attributes'),
+  require('snabbdom/modules/style'),
+  require('snabbdom/modules/eventlisteners'),
   {
     destroy: function (vnode) {
       if (vnode.key) {

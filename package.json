@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/cerebral/cerebral-view-snabbdom#readme",
   "dependencies": {
-    "raskdom": "^0.3.0",
+    "snabbdom": "^0.3.1",
     "snabbdom-jsx": "^0.3.0"
   },
   "devDependencies": {
