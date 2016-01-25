@@ -1,6 +1,6 @@
 {
   "name": "cerebral-view-snabbdom",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "View package for Cerebral",
   "main": "index.js",
   "scripts": {
@@ -29,5 +29,8 @@
   "devDependencies": {
     "snazzy": "^2.0.1",
     "standard": "^5.4.1"
+  },
+  "peerDependencies": {
+    "cerebral": "^0.33.5"
   }
 }
