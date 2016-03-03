@@ -1,5 +1,7 @@
+var optional = require('optional')
 var snabbdom = require('snabbdom')
-var html = require('snabbdom-jsx').html
+var h = require('snabbdom/h')
+var html = (optional('snabbdom-jsx') || {}).html
 
 var optimized = {}
 var activeController = null
@@ -57,6 +59,7 @@ function Component () {
     }
 
     if (
+      props &&
       props.key &&
       optimized[props.key] &&
       !hasChanged(
@@ -70,14 +73,14 @@ function Component () {
     }
 
     var vnode = render({
-      props: props,
+      props: props || {},
       children: children,
       state: newState,
       signals: activeController.getSignals(),
       modules: activeController.getModules()
     })
 
-    if (props.key) {
+    if (props && props.key) {
       optimized[props.key] = {
         vnode: vnode,
         props: props,
@@ -90,6 +93,7 @@ function Component () {
   }
 };
 
+Component.h = h
 Component.DOM = html
 
 module.exports.Component = Component
