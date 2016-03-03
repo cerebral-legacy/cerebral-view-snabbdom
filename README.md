@@ -3,7 +3,7 @@
 Cerebral View Snabbdom makes Cerebral a first class citizen of components. That means you have to do a lot less wiring to build components and Snabbdom is faster than React. Read more about the JSX syntax over at [snabbdom-jsx](https://github.com/yelouafi/snabbdom-jsx), it differs from React. Instead of JSX you can use the built in [snabbdom hyperscript helper](https://github.com/paldepind/snabbdom#snabbdomh).
 
 ## Install
-````
+```
 npm install cerebral-view-snabbdom
 ```
 

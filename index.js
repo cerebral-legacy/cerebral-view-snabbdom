@@ -1,7 +1,7 @@
-var optional = require('optional')
 var snabbdom = require('snabbdom')
 var h = require('snabbdom/h')
-var html = (optional('snabbdom-jsx') || {}).html
+var html
+try { html = require('snabbdom-jsx').html } catch (e) {}
 
 var optimized = {}
 var activeController = null
