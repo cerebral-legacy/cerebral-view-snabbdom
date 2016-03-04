@@ -93,10 +93,11 @@ function Component () {
   }
 };
 
-Component.h = h
 Component.DOM = html
 
 module.exports.Component = Component
+
+module.exports.h = h
 
 module.exports.render = function render (cb, el, controller) {
   activeController = controller
