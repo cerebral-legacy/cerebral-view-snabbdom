@@ -1,6 +1,6 @@
 {
   "name": "cerebral-view-snabbdom",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "View package for Cerebral",
   "main": "index.js",
   "scripts": {
@@ -23,13 +23,13 @@
   },
   "homepage": "https://github.com/cerebral/cerebral-view-snabbdom#readme",
   "dependencies": {
-    "snabbdom": "^0.3.4"
+    "snabbdom": "^0.4.2"
   },
   "devDependencies": {
-    "cerebral": "^0.33.30",
-    "eslint": "^2.2.0",
+    "cerebral": "^0.33.31",
+    "eslint": "^2.7.0",
     "snazzy": "^3.0.0",
-    "standard": "^6.0.7"
+    "standard": "^6.0.8"
   },
   "peerDependencies": {
     "cerebral": "^0.33.5"
