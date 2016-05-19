@@ -27,6 +27,18 @@ Add a `.babelrc`
 }
 ```
 
+If you are not using jsx and don't want to see a compile warning about a missing `snabbdom-jsx` module then you
+can add the following to your `webpack.config.js`:
+
+```js
+module.exports = {
+  // other webpack config here
+  externals: {
+    'snabbdom-jsx': 'snabbdom-jsx'
+  }
+}
+```
+
 ## Render
 
 ```js
