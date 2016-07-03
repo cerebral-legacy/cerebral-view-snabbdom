@@ -156,30 +156,35 @@ function onCerebralUpdate (changes, runPatching, force) {
   }
 }
 
-function Component () {
-  var hasName = typeof arguments[0] === 'string'
-  var name = hasName ? arguments[0] : 'NoName'
-  var extractsState = (hasName && arguments.length === 3) || arguments.length === 2
-  var deps = extractsState ? hasName ? arguments[1] : arguments[0] : {}
-  var getVNode = extractsState ? hasName ? arguments[2] : arguments[1] : arguments[0]
-
-  var render = function (props) {
-    var vnode = getVNode(getProps(props || {}, deps))
-    vnode.component = {
-      getStatePaths: getStatePaths,
-      props: props || {},
-      deps: deps,
-      name: name
-    }
-    return vnode
-  }
-
-  return render
+function functionName(fun) {
+  var ret = fun.toString();
+  ret = ret.substr('function '.length);
+  ret = ret.substr(0, ret.indexOf('('));
+  return ret;
 }
 
-Component.DOM = html
+function connect(deps) {
+  deps = deps || {}
 
-module.exports.Component = Component
+  return function (getVNode) {
+    var render = function (props) {
+      var vnode = getVNode(getProps(props || {}, deps))
+      vnode.component = {
+        getStatePaths: getStatePaths,
+        props: props || {},
+        deps: deps,
+        name: functionName(getVNode)
+      }
+      return vnode
+    }
+
+    return render
+  }
+}
+
+connect.DOM = html
+
+module.exports.connect = connect
 
 module.exports.h = h
 
