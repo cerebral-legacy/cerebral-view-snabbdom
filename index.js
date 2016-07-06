@@ -163,22 +163,18 @@ function functionName(fun) {
   return ret;
 }
 
-function connect(deps) {
+function connect(deps, getVNode) {
   deps = deps || {}
 
-  return function (getVNode) {
-    var render = function (props) {
-      var vnode = getVNode(getProps(props || {}, deps))
-      vnode.component = {
-        getStatePaths: getStatePaths,
-        props: props || {},
-        deps: deps,
-        name: functionName(getVNode)
-      }
-      return vnode
+  var render = function (props) {
+    var vnode = getVNode(getProps(props || {}, deps))
+    vnode.component = {
+      getStatePaths: getStatePaths,
+      props: props || {},
+      deps: deps,
+      name: functionName(getVNode)
     }
-
-    return render
+    return vnode
   }
 }
 
