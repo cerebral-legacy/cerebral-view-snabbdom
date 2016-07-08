@@ -1,8 +1,6 @@
 /* global CustomEvent */
 var snabbdom = require('snabbdom')
 var h = require('snabbdom/h')
-var html
-try { html = require('snabbdom-jsx').html } catch (e) {}
 
 var componentsMap = {}
 var activeController = null
@@ -177,8 +175,6 @@ function connect(deps, getVNode) {
     return vnode
   }
 }
-
-connect.DOM = html
 
 module.exports.connect = connect
 
