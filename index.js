@@ -174,6 +174,8 @@ function connect(deps, getVNode) {
     }
     return vnode
   }
+
+  return render
 }
 
 module.exports.connect = connect
