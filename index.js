@@ -86,7 +86,7 @@ function getStatePaths (props, deps) {
   return typeof deps === 'function' ? deps(propsWithModules) : deps
 }
 
-function getProps (props, deps, children) {
+function getProps (props, deps, signals) {
   var paths = getStatePaths(props, deps)
 
   var propsToPass = Object.keys(paths || {}).reduce(function (props, key) {
@@ -99,7 +99,16 @@ function getProps (props, deps, children) {
     return propsToPass
   }, propsToPass)
 
-  propsToPass.signals = activeController.getSignals()
+  if (signals) {
+    propsToPass = Object.keys(signals).reduce(function (propToPass, key) {
+      propToPass[key] = activeController.getSignals(signals[key])
+      return propToPass
+    }, propsToPass)
+  } else {
+    // expose all signals
+    propsToPass.signals = activeController.getSignals()
+  }
+
   propsToPass.modules = activeController.getModules()
 
   return propsToPass
@@ -154,21 +163,27 @@ function onCerebralUpdate (changes, runPatching, force) {
   }
 }
 
-function functionName(fun) {
-  var ret = fun.toString();
-  ret = ret.substr('function '.length);
-  ret = ret.substr(0, ret.indexOf('('));
-  return ret;
+function functionName (fun) {
+  var ret = fun.toString()
+  ret = ret.substr('function '.length)
+  ret = ret.substr(0, ret.indexOf('('))
+  return ret
 }
 
-function connect(deps, getVNode) {
+function connect (deps, signals, getVNode) {
   deps = deps || {}
 
+  if (arguments.length === 2) {
+    getVNode = signals
+    signals = null
+  }
+
   var render = function (props) {
-    var vnode = getVNode(getProps(props || {}, deps))
+    var vnode = getVNode(getProps(props || {}, deps, signals))
     vnode.component = {
       getStatePaths: getStatePaths,
       props: props || {},
+      signals: signals,
       deps: deps,
       name: functionName(getVNode)
     }
