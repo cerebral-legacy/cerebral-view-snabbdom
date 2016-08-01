@@ -178,6 +178,12 @@ function connect (deps, signals, getVNode) {
     signals = null
   }
 
+  if (process.env.NODE_ENV === 'test') {
+    return function (props) {
+      return getVNode(props)
+    }
+  }
+
   var render = function (props) {
     var vnode = getVNode(getProps(props || {}, deps, signals))
     vnode.component = {
