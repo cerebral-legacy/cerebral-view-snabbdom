@@ -100,6 +100,7 @@ function getProps (props, deps, signals) {
   }, propsToPass)
 
   if (signals) {
+    signals = typeof signals === 'function' ? signals(propsToPass) : signals
     propsToPass = Object.keys(signals).reduce(function (propToPass, key) {
       propToPass[key] = activeController.getSignals(signals[key])
       return propToPass
